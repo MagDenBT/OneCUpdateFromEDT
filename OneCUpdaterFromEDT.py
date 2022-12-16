@@ -265,6 +265,8 @@ class Manager:
         config = configparser.ConfigParser()
         config.sections()
         l = config.read('configsUpdater.ini', encoding='UTF-8')
+        if len(l) == 0:
+            l = config.read('configsUpdater_SAMPLE.ini', encoding='UTF-8')
         con = None if len(l) == 0 else config['DEFAULT']
         return con
 
